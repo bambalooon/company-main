@@ -10,7 +10,7 @@
 
   <properties>
       <jdk.version>1.7</jdk.version>
-      <faces.version>2.2.7</faces.version>
+      <faces.version>2.1.7</faces.version>
       <junit.version>4.11</junit.version>
       <jersey.version>1.8</jersey.version>
       <json.version>1.8</json.version>
@@ -22,15 +22,10 @@
       <primefaces.version>5.0</primefaces.version>
       <tomcat.version>8.0.8</tomcat.version>
       <apache-lang.version>3.3.2</apache-lang.version>
-<<<<<<< HEAD
       <company-reserv.version>1.0</company-reserv.version>
       <company-db.version>1.0</company-db.version>
       <company-invoices.version>1.0</company-invoices.version>
       <java-ee.version>7.0</java-ee.version>
-=======
-      <mail.version>1.5.0-b01</mail.version>
-      <json.version>1.8</json.version>
->>>>>>> origin/master
   </properties>
 
   <repositories>
@@ -100,6 +95,12 @@
       </dependency>
 
       <dependency>
+          <groupId>com.sun.xml.bind</groupId>
+          <artifactId>jaxb</artifactId>
+          <version>2.1.9</version>
+      </dependency>
+
+      <dependency>
           <groupId>com.sun.jersey</groupId>
           <artifactId>jersey-server</artifactId>
           <version>${jersey.version}</version>
@@ -115,12 +116,6 @@
           <groupId>com.sun.jersey</groupId>
           <artifactId>jersey-json</artifactId>
           <version>${json.version}</version>
-      </dependency>
-
-      <dependency>
-          <groupId>javax.mail</groupId>
-          <artifactId>mail</artifactId>
-          <version>${mail.version}</version>
       </dependency>
 
       <dependency>
@@ -161,12 +156,6 @@
           <groupId>com.sun.jersey</groupId>
           <artifactId>jersey-client</artifactId>
           <version>${jersey.version}</version>
-      </dependency>
-
-      <dependency>
-          <groupId>com.sun.jersey</groupId>
-          <artifactId>jersey-json</artifactId>
-          <version>${json.version}</version>
       </dependency>
 
       <dependency>

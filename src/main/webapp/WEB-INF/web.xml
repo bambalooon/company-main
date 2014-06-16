@@ -36,23 +36,16 @@
     </servlet-mapping>
 
     <welcome-file-list>
-<<<<<<< HEAD
         <welcome-file>/pages/index.xhtml</welcome-file>
-=======
-        <welcome-file>/pages/offers.xhtml</welcome-file>
->>>>>>> origin/master
     </welcome-file-list>
 
     <servlet>
         <servlet-name>jersey-servlet</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-<<<<<<< HEAD
-=======
         <init-param>
             <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
             <param-value>true</param-value>
         </init-param>
->>>>>>> origin/master
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -87,8 +80,8 @@
         <!--</user-data-constraint>-->
     <!--</security-constraint>-->
 
+    
     <servlet>
-<<<<<<< HEAD
         <servlet-name>CompanyReserve</servlet-name>
         <servlet-class>pl.bb.broker.company.companyreserv.ws.services.ReservationServiceImpl</servlet-class>
     </servlet>
@@ -96,15 +89,6 @@
     <servlet-mapping>
         <servlet-name>CompanyReserve</servlet-name>
         <url-pattern>/ws/reservations/</url-pattern>
-=======
-        <servlet-name>BrokerInvoices</servlet-name>
-        <servlet-class>pl.bb.broker.brokerinvoices.ws.services.BankServiceImpl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>BrokerInvoices</servlet-name>
-        <url-pattern>/ws/invoices/</url-pattern>
->>>>>>> origin/master
     </servlet-mapping>
 
     <!--<servlet>-->

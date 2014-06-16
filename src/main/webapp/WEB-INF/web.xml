@@ -1,0 +1,186 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>BrokerService</display-name>
+
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.scan.resources</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.scan.providers</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+<<<<<<< HEAD
+        <welcome-file>/pages/index.xhtml</welcome-file>
+=======
+        <welcome-file>/pages/offers.xhtml</welcome-file>
+>>>>>>> origin/master
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>jersey-servlet</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+<<<<<<< HEAD
+=======
+        <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+        </init-param>
+>>>>>>> origin/master
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jersey-servlet</servlet-name>
+        <url-pattern>/rs/invoices/*</url-pattern>
+    </servlet-mapping>
+
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Rest Offer editing</web-resource-name>-->
+            <!--<url-pattern>/rs/offer/management/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>COMPANY</role-name>-->
+        <!--</auth-constraint>-->
+        <!--<user-data-constraint>-->
+            <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
+
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>JSF Offer Editing</web-resource-name>-->
+            <!--<url-pattern>/pages/offer/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>COMPANY</role-name>-->
+        <!--</auth-constraint>-->
+        <!--<user-data-constraint>-->
+            <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
+
+    <servlet>
+<<<<<<< HEAD
+        <servlet-name>CompanyReserve</servlet-name>
+        <servlet-class>pl.bb.broker.company.companyreserv.ws.services.ReservationServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CompanyReserve</servlet-name>
+        <url-pattern>/ws/reservations/</url-pattern>
+=======
+        <servlet-name>BrokerInvoices</servlet-name>
+        <servlet-class>pl.bb.broker.brokerinvoices.ws.services.BankServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BrokerInvoices</servlet-name>
+        <url-pattern>/ws/invoices/</url-pattern>
+>>>>>>> origin/master
+    </servlet-mapping>
+
+    <!--<servlet>-->
+        <!--<servlet-name>CompanyInvoice</servlet-name>-->
+        <!--<servlet-class>pl.bb.broker.company.invoices.ws.services.InvoiceServiceImpl</servlet-class>-->
+    <!--</servlet>-->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>CompanyInvoice</servlet-name>-->
+        <!--<url-pattern>/ws/invoices/</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Secure Area</web-resource-name>-->
+            <!--<url-pattern>/pages/secured/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>CLIENT</role-name>-->
+            <!--<role-name>COMPANY</role-name>-->
+        <!--</auth-constraint>-->
+        <!--<user-data-constraint>-->
+            <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
+
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Login Page</web-resource-name>-->
+            <!--<url-pattern>/pages/auth/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<user-data-constraint>-->
+            <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
+
+    <!--<login-config>-->
+        <!--<auth-method>FORM</auth-method>-->
+        <!--<realm-name>BrokerRealm</realm-name>-->
+        <!--<form-login-config>-->
+            <!--<form-login-page>/pages/auth/login.xhtml</form-login-page>-->
+            <!--<form-error-page>/pages/auth/error.xhtml</form-error-page>-->
+        <!--</form-login-config>-->
+    <!--</login-config>-->
+    <!---->
+    <!--<security-role>-->
+        <!--<role-name>CLIENT</role-name>-->
+    <!--</security-role>-->
+    <!---->
+    <!--<security-role>-->
+        <!--<role-name>COMPANY</role-name>-->
+    <!--</security-role>-->
+
+    <filter>
+        <filter-name>PrimeFaces FileUpload filter</filter-name>
+        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>PrimeFaces FileUpload filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>forceUTF8CharSet</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>forceUTF8CharSet</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+
+
+</web-app>

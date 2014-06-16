@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: BamBalooon
+  Date: 23.05.14
+  Time: 20:47
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:form="http://www.springframework.org/tags/form"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Broker Page</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <h:outputStylesheet library="css" name="page.css" />
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+    <f:view>
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="../../templates/header.xhtml" />
+            </ui:insert>
+        </div>
+        <div style="background-color: #ffffff;">
+            <div id="pagebody">
+                <div id="content">
+                    <h:form styleClass="login">
+                        <p:messages id="messages"/>
+                        <h:panelGrid id="grid" columns="2" columnClasses="login-even,login-odd" cellspacing="0" cellpadding="0" styleClass="collapse">
+                            <h:panelGroup>
+                                <h:outputLabel>Nazwa użytkownika:</h:outputLabel>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <p:inputText value="#{loginBean.username}" required="true"/>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <h:outputLabel>Hasło:</h:outputLabel>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <p:password value="#{loginBean.password}" required="true" />
+                            </h:panelGroup>
+                            <h:panelGroup/>
+                            <h:panelGroup>
+                                <input type="hidden" name="redirect" value="../secured/index.xhtml"/>
+                                <p:commandButton value="akceptuj" icon="ui-icon-check" action="#{loginBean.login}" update="messages" />
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <h:link outcome="register">Rejestracja Klienta</h:link>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <h:link outcome="registerCompany">Rejestracja Firmy</h:link>
+                            </h:panelGroup>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:insert name="footer">
+                <ui:include src="../../templates/footer.xhtml" />
+            </ui:insert>
+        </div>
+    </f:view>
+</h:body>
+
+</html>

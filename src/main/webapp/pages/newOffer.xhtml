@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: BamBalooon
+  Date: 23.05.14
+  Time: 20:47
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Company Page</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+    <f:view>
+        <h:form id="offerForm">
+            <p:messages id="messages" />
+            <p:panelGrid id="offerTable" columns="2">
+                <f:facet name="header">
+                    <h:outputLabel>Nowa oferta</h:outputLabel>
+                </f:facet>
+                <h:outputLabel>Obiekt:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="facilityName" value="#{newOfferBean.facility.name}" />
+                    <p:watermark value="nazwa" for="facilityName" />
+                    <p:inputText id="facilityAddress" value="#{newOfferBean.facility.address}" />
+                    <p:watermark value="adres" for="facilityAddress" />
+                </h:panelGroup>
+
+                <h:outputLabel>Miasto:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="city" value="#{newOfferBean.offer.city}" />
+                    <p:watermark value="miasto" for="city" />
+                </h:panelGroup>
+
+                <h:outputLabel>Opis oferty:</h:outputLabel>
+                <p:editor id="description" value="#{newOfferBean.offer.description}" />
+                <h:outputLabel>Zdjęcie:</h:outputLabel>
+                <p:fileUpload fileUploadListener="#{newOfferBean.upload}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                      sizeLimit="1000000" update="messages" />
+            </p:panelGrid>
+            <p:dataTable id="rooms" value="#{newOfferBean.rooms}" var="room" rowIndexVar="rowIndex" scrollable="false">
+                <f:facet name="header">
+                    <p:row>
+                        <p:column colspan="6">Pokoje</p:column>
+                    </p:row>
+                </f:facet>
+                <p:column headerText="#" styleClass="idColumn">
+                    <h:outputLabel>#{rowIndex+1}</h:outputLabel>
+                </p:column>
+                <p:column headerText="Typ" styleClass="typeColumn">
+                    <p:inputText value="#{room.rtype}" />
+                </p:column>
+                <p:column headerText="Nazwa" styleClass="nameColumn">
+                    <p:inputText value="#{room.rname}" />
+                </p:column>
+                <p:column headerText="Cena" styleClass="priceColumn">
+                    <p:inputText value="#{room.price}" />
+                </p:column>
+                <p:column headerText="Ilość" styleClass="countColumn">
+                    <p:inputText value="#{room.count}" />
+                </p:column>
+                <p:column styleClass="delColumn">
+                    <f:facet name="header">
+                        <p:commandButton action="#{newOfferBean.addRoom}" process="@this" update="rooms,:offerForm:messages" icon="ui-icon-plusthick"/>
+                    </f:facet>
+                    <p:commandButton action="#{newOfferBean.deleteRoom(room)}" process="@this" update="rooms,:offerForm:messages" icon="ui-icon-closethick" />
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="Zapisz" action="#{newOfferBean.save}" icon="ui-icon-check" update="messages" />
+        </h:form>
+    </f:view>
+</h:body>
+
+</html>

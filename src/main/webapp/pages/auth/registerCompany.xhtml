@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: BamBalooon
+  Date: 23.05.14
+  Time: 20:47
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:form="http://www.springframework.org/tags/form"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Broker Page</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <h:outputStylesheet library="css" name="page.css" />
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+    <f:view>
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="../../templates/header.xhtml" />
+            </ui:insert>
+        </div>
+        <div style="background-color: #ffffff;">
+            <div id="pagebody">
+                <div id="content">
+                    <h:form id="registerForm">
+                        <p:messages id="messages" />
+                        <h:panelGrid id="grid" columns="2" columnClasses="login-odd, login-even" cellspacing="0" cellpadding="0" styleClass="collapse">
+                            <h:outputLabel>Nazwa użytkownika:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.username}" required="true">
+                                <f:validator validatorId="usernameExistsValidator"/>
+                            </p:inputText>
+
+                            <h:outputLabel>Hasło #1:</h:outputLabel>
+                            <p:password value="#{registerCompanyBean.password1}" required="true">
+                                <f:validator validatorId="passwordEqualityValidator"/>
+                                <f:attribute name="password2" value="#{password2}"/>
+                            </p:password>
+
+                            <h:outputLabel>Hasło #2:</h:outputLabel>
+                            <p:password value="#{registerCompanyBean.password2}" id="password2" binding="#{password2}" required="true"/>
+
+                            <h:outputLabel>Imie:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.firstname}" required="true" />
+
+                            <h:outputLabel>Nazwisko:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.surname}" required="true" />
+
+                            <h:outputLabel>Nazwa firmy:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.companyName}" required="true"/>
+
+                            <h:outputLabel>Adres:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.address}"/>
+
+                            <h:outputLabel>Telefon:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.phone}"/>
+
+                            <h:outputLabel>E-mail:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.email}"/>
+
+                            <h:outputLabel>Adres serwera:</h:outputLabel>
+                            <p:inputText value="#{registerCompanyBean.resources}"/>
+
+                            <f:facet name="footer">
+                                <p:commandButton value="akceptuj" action="#{registerCompanyBean.registerCompany}" update="messages" icon="ui-icon-check" />
+                            </f:facet>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:insert name="footer">
+                <ui:include src="../../templates/footer.xhtml" />
+            </ui:insert>
+        </div>
+    </f:view>
+</h:body>
+
+</html>
